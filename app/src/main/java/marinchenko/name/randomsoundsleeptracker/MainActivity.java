@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
 
     private boolean isPlaying = false;
     private boolean randomDelay = false;
+    private int periodicMute = 0;
     private int freqHz = 300;
     private int durationMs = 1000;
     private int delayMs = 1000;
@@ -66,6 +67,7 @@ public class MainActivity extends Activity {
         this.freqHz = (int) parseEditText(this.freqHz, (EditText) findViewById(R.id.freqText));
         this.durationMs = (int) parseEditText(this.durationMs, (EditText) findViewById(R.id.durationText));
         this.delayMs = (int) parseEditText(this.delayMs, (EditText) findViewById(R.id.delayText));
+        this.periodicMute = (int) parseEditText(this.periodicMute, (EditText) findViewById(R.id.periodicMute));
         this.ratio = parseEditText(this.ratio, (EditText) findViewById(R.id.ratioText));
 
         if (this.isPlaying) {
@@ -75,7 +77,8 @@ public class MainActivity extends Activity {
                     this.curve,
                     this.durationMs,
                     this.delayMs,
-                    this.ratio);
+                    this.ratio,
+                    this.periodicMute);
         } else {
             toneGen.setRandom(false);
         }
